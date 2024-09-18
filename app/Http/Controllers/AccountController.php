@@ -11,7 +11,9 @@ class AccountController extends Controller
     // Metodo para resetar tudo o que foi feito
     public function reset(Request $request)
     {
-        $request->session()->put('accounts', []);
+        $request->session()->put('accounts', [
+            300 => new Account(300, 0),
+        ]);
 
         return response()->json([
             "message" => 'OK'
